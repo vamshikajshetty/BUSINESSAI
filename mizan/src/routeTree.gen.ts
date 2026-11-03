@@ -21,6 +21,9 @@ import { Route as AppDashboardRouteImport } from './routes/_app/dashboard'
 import { Route as AppDocumentsRouteImport } from './routes/_app/documents'
 import { Route as AppProfileRouteImport } from './routes/_app/profile'
 import { Route as AppTasksRouteImport } from './routes/_app/tasks'
+import { Route as ApiHealthRouteImport } from './routes/api.health'
+import { Route as ApiAuthLoginRouteImport } from './routes/api.auth.login'
+import { Route as ApiAuthRegisterRouteImport } from './routes/api.auth.register'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -81,6 +84,21 @@ const AppTasksRoute = AppTasksRouteImport.update({
   path: '/tasks',
   getParentRoute: () => AppRoute,
 } as any)
+const ApiHealthRoute = ApiHealthRouteImport.update({
+  id: '/api/health',
+  path: '/api/health',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAuthLoginRoute = ApiAuthLoginRouteImport.update({
+  id: '/api/auth/login',
+  path: '/api/auth/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAuthRegisterRoute = ApiAuthRegisterRouteImport.update({
+  id: '/api/auth/register',
+  path: '/api/auth/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -94,6 +112,9 @@ export interface FileRoutesByFullPath {
   '/documents': typeof AppDocumentsRoute
   '/profile': typeof AppProfileRoute
   '/tasks': typeof AppTasksRoute
+  '/api/health': typeof ApiHealthRoute
+  '/api/auth/login': typeof ApiAuthLoginRoute
+  '/api/auth/register': typeof ApiAuthRegisterRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -107,6 +128,9 @@ export interface FileRoutesByTo {
   '/documents': typeof AppDocumentsRoute
   '/profile': typeof AppProfileRoute
   '/tasks': typeof AppTasksRoute
+  '/api/health': typeof ApiHealthRoute
+  '/api/auth/login': typeof ApiAuthLoginRoute
+  '/api/auth/register': typeof ApiAuthRegisterRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -122,6 +146,9 @@ export interface FileRoutesById {
   '/_app/documents': typeof AppDocumentsRoute
   '/_app/profile': typeof AppProfileRoute
   '/_app/tasks': typeof AppTasksRoute
+  '/api/health': typeof ApiHealthRoute
+  '/api/auth/login': typeof ApiAuthLoginRoute
+  '/api/auth/register': typeof ApiAuthRegisterRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -137,6 +164,9 @@ export interface FileRouteTypes {
     | '/documents'
     | '/profile'
     | '/tasks'
+    | '/api/health'
+    | '/api/auth/login'
+    | '/api/auth/register'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -150,6 +180,9 @@ export interface FileRouteTypes {
     | '/documents'
     | '/profile'
     | '/tasks'
+    | '/api/health'
+    | '/api/auth/login'
+    | '/api/auth/register'
   id:
     | '__root__'
     | '/'
@@ -164,6 +197,9 @@ export interface FileRouteTypes {
     | '/_app/documents'
     | '/_app/profile'
     | '/_app/tasks'
+    | '/api/health'
+    | '/api/auth/login'
+    | '/api/auth/register'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -171,6 +207,9 @@ export interface RootRouteChildren {
   AppRoute: typeof AppRouteWithChildren
   OnboardingRoute: typeof OnboardingRoute
   RegisterRoute: typeof RegisterRoute
+  ApiHealthRoute: typeof ApiHealthRoute
+  ApiAuthLoginRoute: typeof ApiAuthLoginRoute
+  ApiAuthRegisterRoute: typeof ApiAuthRegisterRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -259,6 +298,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppTasksRouteImport
       parentRoute: typeof AppRoute
     }
+    '/api/health': {
+      id: '/api/health'
+      path: '/api/health'
+      fullPath: '/api/health'
+      preLoaderRoute: typeof ApiHealthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/auth/login': {
+      id: '/api/auth/login'
+      path: '/api/auth/login'
+      fullPath: '/api/auth/login'
+      preLoaderRoute: typeof ApiAuthLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/auth/register': {
+      id: '/api/auth/register'
+      path: '/api/auth/register'
+      fullPath: '/api/auth/register'
+      preLoaderRoute: typeof ApiAuthRegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -291,6 +351,9 @@ const rootRouteChildren: RootRouteChildren = {
   AppRoute: AppRouteWithChildren,
   OnboardingRoute: OnboardingRoute,
   RegisterRoute: RegisterRoute,
+  ApiHealthRoute: ApiHealthRoute,
+  ApiAuthLoginRoute: ApiAuthLoginRoute,
+  ApiAuthRegisterRoute: ApiAuthRegisterRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
