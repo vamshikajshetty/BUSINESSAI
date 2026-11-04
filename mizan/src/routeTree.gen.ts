@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AppRouteImport } from './routes/_app'
+import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as RegisterRouteImport } from './routes/register'
 import { Route as AppActivityRouteImport } from './routes/_app/activity'
@@ -21,9 +22,25 @@ import { Route as AppDashboardRouteImport } from './routes/_app/dashboard'
 import { Route as AppDocumentsRouteImport } from './routes/_app/documents'
 import { Route as AppProfileRouteImport } from './routes/_app/profile'
 import { Route as AppTasksRouteImport } from './routes/_app/tasks'
+import { Route as ApiActivityRouteImport } from './routes/api.activity'
+import { Route as ApiAgentRouteImport } from './routes/api.agent'
+import { Route as ApiApprovalsRouteImport } from './routes/api.approvals'
+import { Route as ApiBusinessRouteImport } from './routes/api.business'
+import { Route as ApiChatRouteImport } from './routes/api.chat'
+import { Route as ApiDeadlinesRouteImport } from './routes/api.deadlines'
+import { Route as ApiDocumentsRouteImport } from './routes/api.documents'
 import { Route as ApiHealthRouteImport } from './routes/api.health'
+import { Route as ApiTasksRouteImport } from './routes/api.tasks'
+import { Route as ApiAuthForgotPasswordRouteImport } from './routes/api.auth.forgot-password'
 import { Route as ApiAuthLoginRouteImport } from './routes/api.auth.login'
+import { Route as ApiAuthLogoutRouteImport } from './routes/api.auth.logout'
+import { Route as ApiAuthMeRouteImport } from './routes/api.auth.me'
 import { Route as ApiAuthRegisterRouteImport } from './routes/api.auth.register'
+import { Route as ApiAuthResetPasswordRouteImport } from './routes/api.auth.reset-password'
+import { Route as ApiAuthVerifyResetCodeRouteImport } from './routes/api.auth.verify-reset-code'
+import { Route as ApiDeadlinesIdRouteImport } from './routes/api.deadlines.$id'
+import { Route as ApiDocumentsIdRouteImport } from './routes/api.documents.$id'
+import { Route as ApiTasksIdRouteImport } from './routes/api.tasks.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -32,6 +49,11 @@ const IndexRoute = IndexRouteImport.update({
 } as any)
 const AppRoute = AppRouteImport.update({
   id: '/_app',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OnboardingRoute = OnboardingRouteImport.update({
@@ -84,9 +106,54 @@ const AppTasksRoute = AppTasksRouteImport.update({
   path: '/tasks',
   getParentRoute: () => AppRoute,
 } as any)
+const ApiActivityRoute = ApiActivityRouteImport.update({
+  id: '/api/activity',
+  path: '/api/activity',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAgentRoute = ApiAgentRouteImport.update({
+  id: '/api/agent',
+  path: '/api/agent',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiApprovalsRoute = ApiApprovalsRouteImport.update({
+  id: '/api/approvals',
+  path: '/api/approvals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiBusinessRoute = ApiBusinessRouteImport.update({
+  id: '/api/business',
+  path: '/api/business',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiChatRoute = ApiChatRouteImport.update({
+  id: '/api/chat',
+  path: '/api/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiDeadlinesRoute = ApiDeadlinesRouteImport.update({
+  id: '/api/deadlines',
+  path: '/api/deadlines',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiDocumentsRoute = ApiDocumentsRouteImport.update({
+  id: '/api/documents',
+  path: '/api/documents',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiHealthRoute = ApiHealthRouteImport.update({
   id: '/api/health',
   path: '/api/health',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiTasksRoute = ApiTasksRouteImport.update({
+  id: '/api/tasks',
+  path: '/api/tasks',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAuthForgotPasswordRoute = ApiAuthForgotPasswordRouteImport.update({
+  id: '/api/auth/forgot-password',
+  path: '/api/auth/forgot-password',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiAuthLoginRoute = ApiAuthLoginRouteImport.update({
@@ -94,14 +161,50 @@ const ApiAuthLoginRoute = ApiAuthLoginRouteImport.update({
   path: '/api/auth/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiAuthLogoutRoute = ApiAuthLogoutRouteImport.update({
+  id: '/api/auth/logout',
+  path: '/api/auth/logout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAuthMeRoute = ApiAuthMeRouteImport.update({
+  id: '/api/auth/me',
+  path: '/api/auth/me',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiAuthRegisterRoute = ApiAuthRegisterRouteImport.update({
   id: '/api/auth/register',
   path: '/api/auth/register',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiAuthResetPasswordRoute = ApiAuthResetPasswordRouteImport.update({
+  id: '/api/auth/reset-password',
+  path: '/api/auth/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAuthVerifyResetCodeRoute = ApiAuthVerifyResetCodeRouteImport.update({
+  id: '/api/auth/verify-reset-code',
+  path: '/api/auth/verify-reset-code',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiDeadlinesIdRoute = ApiDeadlinesIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ApiDeadlinesRoute,
+} as any)
+const ApiDocumentsIdRoute = ApiDocumentsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ApiDocumentsRoute,
+} as any)
+const ApiTasksIdRoute = ApiTasksIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ApiTasksRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/forgot-password': typeof ForgotPasswordRoute
   '/onboarding': typeof OnboardingRoute
   '/register': typeof RegisterRoute
   '/activity': typeof AppActivityRoute
@@ -112,12 +215,29 @@ export interface FileRoutesByFullPath {
   '/documents': typeof AppDocumentsRoute
   '/profile': typeof AppProfileRoute
   '/tasks': typeof AppTasksRoute
+  '/api/activity': typeof ApiActivityRoute
+  '/api/agent': typeof ApiAgentRoute
+  '/api/approvals': typeof ApiApprovalsRoute
+  '/api/business': typeof ApiBusinessRoute
+  '/api/chat': typeof ApiChatRoute
+  '/api/deadlines': typeof ApiDeadlinesRouteWithChildren
+  '/api/documents': typeof ApiDocumentsRouteWithChildren
   '/api/health': typeof ApiHealthRoute
+  '/api/tasks': typeof ApiTasksRouteWithChildren
+  '/api/auth/forgot-password': typeof ApiAuthForgotPasswordRoute
   '/api/auth/login': typeof ApiAuthLoginRoute
+  '/api/auth/logout': typeof ApiAuthLogoutRoute
+  '/api/auth/me': typeof ApiAuthMeRoute
   '/api/auth/register': typeof ApiAuthRegisterRoute
+  '/api/auth/reset-password': typeof ApiAuthResetPasswordRoute
+  '/api/auth/verify-reset-code': typeof ApiAuthVerifyResetCodeRoute
+  '/api/deadlines/$id': typeof ApiDeadlinesIdRoute
+  '/api/documents/$id': typeof ApiDocumentsIdRoute
+  '/api/tasks/$id': typeof ApiTasksIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/forgot-password': typeof ForgotPasswordRoute
   '/onboarding': typeof OnboardingRoute
   '/register': typeof RegisterRoute
   '/activity': typeof AppActivityRoute
@@ -128,14 +248,31 @@ export interface FileRoutesByTo {
   '/documents': typeof AppDocumentsRoute
   '/profile': typeof AppProfileRoute
   '/tasks': typeof AppTasksRoute
+  '/api/activity': typeof ApiActivityRoute
+  '/api/agent': typeof ApiAgentRoute
+  '/api/approvals': typeof ApiApprovalsRoute
+  '/api/business': typeof ApiBusinessRoute
+  '/api/chat': typeof ApiChatRoute
+  '/api/deadlines': typeof ApiDeadlinesRouteWithChildren
+  '/api/documents': typeof ApiDocumentsRouteWithChildren
   '/api/health': typeof ApiHealthRoute
+  '/api/tasks': typeof ApiTasksRouteWithChildren
+  '/api/auth/forgot-password': typeof ApiAuthForgotPasswordRoute
   '/api/auth/login': typeof ApiAuthLoginRoute
+  '/api/auth/logout': typeof ApiAuthLogoutRoute
+  '/api/auth/me': typeof ApiAuthMeRoute
   '/api/auth/register': typeof ApiAuthRegisterRoute
+  '/api/auth/reset-password': typeof ApiAuthResetPasswordRoute
+  '/api/auth/verify-reset-code': typeof ApiAuthVerifyResetCodeRoute
+  '/api/deadlines/$id': typeof ApiDeadlinesIdRoute
+  '/api/documents/$id': typeof ApiDocumentsIdRoute
+  '/api/tasks/$id': typeof ApiTasksIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_app': typeof AppRouteWithChildren
+  '/forgot-password': typeof ForgotPasswordRoute
   '/onboarding': typeof OnboardingRoute
   '/register': typeof RegisterRoute
   '/_app/activity': typeof AppActivityRoute
@@ -146,14 +283,31 @@ export interface FileRoutesById {
   '/_app/documents': typeof AppDocumentsRoute
   '/_app/profile': typeof AppProfileRoute
   '/_app/tasks': typeof AppTasksRoute
+  '/api/activity': typeof ApiActivityRoute
+  '/api/agent': typeof ApiAgentRoute
+  '/api/approvals': typeof ApiApprovalsRoute
+  '/api/business': typeof ApiBusinessRoute
+  '/api/chat': typeof ApiChatRoute
+  '/api/deadlines': typeof ApiDeadlinesRouteWithChildren
+  '/api/documents': typeof ApiDocumentsRouteWithChildren
   '/api/health': typeof ApiHealthRoute
+  '/api/tasks': typeof ApiTasksRouteWithChildren
+  '/api/auth/forgot-password': typeof ApiAuthForgotPasswordRoute
   '/api/auth/login': typeof ApiAuthLoginRoute
+  '/api/auth/logout': typeof ApiAuthLogoutRoute
+  '/api/auth/me': typeof ApiAuthMeRoute
   '/api/auth/register': typeof ApiAuthRegisterRoute
+  '/api/auth/reset-password': typeof ApiAuthResetPasswordRoute
+  '/api/auth/verify-reset-code': typeof ApiAuthVerifyResetCodeRoute
+  '/api/deadlines/$id': typeof ApiDeadlinesIdRoute
+  '/api/documents/$id': typeof ApiDocumentsIdRoute
+  '/api/tasks/$id': typeof ApiTasksIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/forgot-password'
     | '/onboarding'
     | '/register'
     | '/activity'
@@ -164,12 +318,29 @@ export interface FileRouteTypes {
     | '/documents'
     | '/profile'
     | '/tasks'
+    | '/api/activity'
+    | '/api/agent'
+    | '/api/approvals'
+    | '/api/business'
+    | '/api/chat'
+    | '/api/deadlines'
+    | '/api/documents'
     | '/api/health'
+    | '/api/tasks'
+    | '/api/auth/forgot-password'
     | '/api/auth/login'
+    | '/api/auth/logout'
+    | '/api/auth/me'
     | '/api/auth/register'
+    | '/api/auth/reset-password'
+    | '/api/auth/verify-reset-code'
+    | '/api/deadlines/$id'
+    | '/api/documents/$id'
+    | '/api/tasks/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/forgot-password'
     | '/onboarding'
     | '/register'
     | '/activity'
@@ -180,13 +351,30 @@ export interface FileRouteTypes {
     | '/documents'
     | '/profile'
     | '/tasks'
+    | '/api/activity'
+    | '/api/agent'
+    | '/api/approvals'
+    | '/api/business'
+    | '/api/chat'
+    | '/api/deadlines'
+    | '/api/documents'
     | '/api/health'
+    | '/api/tasks'
+    | '/api/auth/forgot-password'
     | '/api/auth/login'
+    | '/api/auth/logout'
+    | '/api/auth/me'
     | '/api/auth/register'
+    | '/api/auth/reset-password'
+    | '/api/auth/verify-reset-code'
+    | '/api/deadlines/$id'
+    | '/api/documents/$id'
+    | '/api/tasks/$id'
   id:
     | '__root__'
     | '/'
     | '/_app'
+    | '/forgot-password'
     | '/onboarding'
     | '/register'
     | '/_app/activity'
@@ -197,19 +385,49 @@ export interface FileRouteTypes {
     | '/_app/documents'
     | '/_app/profile'
     | '/_app/tasks'
+    | '/api/activity'
+    | '/api/agent'
+    | '/api/approvals'
+    | '/api/business'
+    | '/api/chat'
+    | '/api/deadlines'
+    | '/api/documents'
     | '/api/health'
+    | '/api/tasks'
+    | '/api/auth/forgot-password'
     | '/api/auth/login'
+    | '/api/auth/logout'
+    | '/api/auth/me'
     | '/api/auth/register'
+    | '/api/auth/reset-password'
+    | '/api/auth/verify-reset-code'
+    | '/api/deadlines/$id'
+    | '/api/documents/$id'
+    | '/api/tasks/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AppRoute: typeof AppRouteWithChildren
+  ForgotPasswordRoute: typeof ForgotPasswordRoute
   OnboardingRoute: typeof OnboardingRoute
   RegisterRoute: typeof RegisterRoute
+  ApiActivityRoute: typeof ApiActivityRoute
+  ApiAgentRoute: typeof ApiAgentRoute
+  ApiApprovalsRoute: typeof ApiApprovalsRoute
+  ApiBusinessRoute: typeof ApiBusinessRoute
+  ApiChatRoute: typeof ApiChatRoute
+  ApiDeadlinesRoute: typeof ApiDeadlinesRouteWithChildren
+  ApiDocumentsRoute: typeof ApiDocumentsRouteWithChildren
   ApiHealthRoute: typeof ApiHealthRoute
+  ApiTasksRoute: typeof ApiTasksRouteWithChildren
+  ApiAuthForgotPasswordRoute: typeof ApiAuthForgotPasswordRoute
   ApiAuthLoginRoute: typeof ApiAuthLoginRoute
+  ApiAuthLogoutRoute: typeof ApiAuthLogoutRoute
+  ApiAuthMeRoute: typeof ApiAuthMeRoute
   ApiAuthRegisterRoute: typeof ApiAuthRegisterRoute
+  ApiAuthResetPasswordRoute: typeof ApiAuthResetPasswordRoute
+  ApiAuthVerifyResetCodeRoute: typeof ApiAuthVerifyResetCodeRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -226,6 +444,13 @@ declare module '@tanstack/react-router' {
       path: ''
       fullPath: '/'
       preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/forgot-password': {
+      id: '/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof ForgotPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/onboarding': {
@@ -298,11 +523,74 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppTasksRouteImport
       parentRoute: typeof AppRoute
     }
+    '/api/activity': {
+      id: '/api/activity'
+      path: '/api/activity'
+      fullPath: '/api/activity'
+      preLoaderRoute: typeof ApiActivityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/agent': {
+      id: '/api/agent'
+      path: '/api/agent'
+      fullPath: '/api/agent'
+      preLoaderRoute: typeof ApiAgentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/approvals': {
+      id: '/api/approvals'
+      path: '/api/approvals'
+      fullPath: '/api/approvals'
+      preLoaderRoute: typeof ApiApprovalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/business': {
+      id: '/api/business'
+      path: '/api/business'
+      fullPath: '/api/business'
+      preLoaderRoute: typeof ApiBusinessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/chat': {
+      id: '/api/chat'
+      path: '/api/chat'
+      fullPath: '/api/chat'
+      preLoaderRoute: typeof ApiChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/deadlines': {
+      id: '/api/deadlines'
+      path: '/api/deadlines'
+      fullPath: '/api/deadlines'
+      preLoaderRoute: typeof ApiDeadlinesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/documents': {
+      id: '/api/documents'
+      path: '/api/documents'
+      fullPath: '/api/documents'
+      preLoaderRoute: typeof ApiDocumentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/health': {
       id: '/api/health'
       path: '/api/health'
       fullPath: '/api/health'
       preLoaderRoute: typeof ApiHealthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/tasks': {
+      id: '/api/tasks'
+      path: '/api/tasks'
+      fullPath: '/api/tasks'
+      preLoaderRoute: typeof ApiTasksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/auth/forgot-password': {
+      id: '/api/auth/forgot-password'
+      path: '/api/auth/forgot-password'
+      fullPath: '/api/auth/forgot-password'
+      preLoaderRoute: typeof ApiAuthForgotPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/auth/login': {
@@ -312,12 +600,61 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiAuthLoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/auth/logout': {
+      id: '/api/auth/logout'
+      path: '/api/auth/logout'
+      fullPath: '/api/auth/logout'
+      preLoaderRoute: typeof ApiAuthLogoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/auth/me': {
+      id: '/api/auth/me'
+      path: '/api/auth/me'
+      fullPath: '/api/auth/me'
+      preLoaderRoute: typeof ApiAuthMeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/auth/register': {
       id: '/api/auth/register'
       path: '/api/auth/register'
       fullPath: '/api/auth/register'
       preLoaderRoute: typeof ApiAuthRegisterRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/api/auth/reset-password': {
+      id: '/api/auth/reset-password'
+      path: '/api/auth/reset-password'
+      fullPath: '/api/auth/reset-password'
+      preLoaderRoute: typeof ApiAuthResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/auth/verify-reset-code': {
+      id: '/api/auth/verify-reset-code'
+      path: '/api/auth/verify-reset-code'
+      fullPath: '/api/auth/verify-reset-code'
+      preLoaderRoute: typeof ApiAuthVerifyResetCodeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/deadlines/$id': {
+      id: '/api/deadlines/$id'
+      path: '/$id'
+      fullPath: '/api/deadlines/$id'
+      preLoaderRoute: typeof ApiDeadlinesIdRouteImport
+      parentRoute: typeof ApiDeadlinesRoute
+    }
+    '/api/documents/$id': {
+      id: '/api/documents/$id'
+      path: '/$id'
+      fullPath: '/api/documents/$id'
+      preLoaderRoute: typeof ApiDocumentsIdRouteImport
+      parentRoute: typeof ApiDocumentsRoute
+    }
+    '/api/tasks/$id': {
+      id: '/api/tasks/$id'
+      path: '/$id'
+      fullPath: '/api/tasks/$id'
+      preLoaderRoute: typeof ApiTasksIdRouteImport
+      parentRoute: typeof ApiTasksRoute
     }
   }
 }
@@ -346,14 +683,64 @@ const AppRouteChildren: AppRouteChildren = {
 
 const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
 
+interface ApiDeadlinesRouteChildren {
+  ApiDeadlinesIdRoute: typeof ApiDeadlinesIdRoute
+}
+
+const ApiDeadlinesRouteChildren: ApiDeadlinesRouteChildren = {
+  ApiDeadlinesIdRoute: ApiDeadlinesIdRoute,
+}
+
+const ApiDeadlinesRouteWithChildren = ApiDeadlinesRoute._addFileChildren(
+  ApiDeadlinesRouteChildren,
+)
+
+interface ApiDocumentsRouteChildren {
+  ApiDocumentsIdRoute: typeof ApiDocumentsIdRoute
+}
+
+const ApiDocumentsRouteChildren: ApiDocumentsRouteChildren = {
+  ApiDocumentsIdRoute: ApiDocumentsIdRoute,
+}
+
+const ApiDocumentsRouteWithChildren = ApiDocumentsRoute._addFileChildren(
+  ApiDocumentsRouteChildren,
+)
+
+interface ApiTasksRouteChildren {
+  ApiTasksIdRoute: typeof ApiTasksIdRoute
+}
+
+const ApiTasksRouteChildren: ApiTasksRouteChildren = {
+  ApiTasksIdRoute: ApiTasksIdRoute,
+}
+
+const ApiTasksRouteWithChildren = ApiTasksRoute._addFileChildren(
+  ApiTasksRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AppRoute: AppRouteWithChildren,
+  ForgotPasswordRoute: ForgotPasswordRoute,
   OnboardingRoute: OnboardingRoute,
   RegisterRoute: RegisterRoute,
+  ApiActivityRoute: ApiActivityRoute,
+  ApiAgentRoute: ApiAgentRoute,
+  ApiApprovalsRoute: ApiApprovalsRoute,
+  ApiBusinessRoute: ApiBusinessRoute,
+  ApiChatRoute: ApiChatRoute,
+  ApiDeadlinesRoute: ApiDeadlinesRouteWithChildren,
+  ApiDocumentsRoute: ApiDocumentsRouteWithChildren,
   ApiHealthRoute: ApiHealthRoute,
+  ApiTasksRoute: ApiTasksRouteWithChildren,
+  ApiAuthForgotPasswordRoute: ApiAuthForgotPasswordRoute,
   ApiAuthLoginRoute: ApiAuthLoginRoute,
+  ApiAuthLogoutRoute: ApiAuthLogoutRoute,
+  ApiAuthMeRoute: ApiAuthMeRoute,
   ApiAuthRegisterRoute: ApiAuthRegisterRoute,
+  ApiAuthResetPasswordRoute: ApiAuthResetPasswordRoute,
+  ApiAuthVerifyResetCodeRoute: ApiAuthVerifyResetCodeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

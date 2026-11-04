@@ -1,22 +1,14 @@
+
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
-/*
- * Design system definition.
- *
- * The @theme inline block maps CSS custom properties to Tailwind utility
- * classes (e.g. --color-primary -> bg-primary, text-primary).
- *
- * The :root and .dark blocks define the actual color values using oklch.
- * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
- */
+/* =========================================================
+   MIZAN DESIGN SYSTEM
+   Shared deep-blue theme
+========================================================= */
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -26,31 +18,41 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
+
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
+
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
+
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
+
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
+
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-ring-offset-background: var(--background);
+
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -59,49 +61,78 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
   --color-warning: var(--warning);
   --color-success: var(--success);
+
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
+/* =========================================================
+   GLOBAL COLOURS
+   Deep blue background shared throughout Mizan
+========================================================= */
+
 :root {
-  --radius: 0.75rem;
-  --background: oklch(0.977 0.005 250);
-  --foreground: oklch(0.29 0.06 250);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.29 0.06 250);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.29 0.06 250);
-  --primary: oklch(0.29 0.06 250);
-  --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.95 0.008 250);
-  --secondary-foreground: oklch(0.29 0.06 250);
-  --muted: oklch(0.955 0.007 250);
-  --muted-foreground: oklch(0.52 0.03 250);
-  --accent: oklch(0.65 0.11 188);
-  --accent-foreground: oklch(0.99 0 0);
-  --destructive: oklch(0.58 0.21 27);
-  --destructive-foreground: oklch(0.99 0 0);
-  --warning: oklch(0.75 0.15 75);
-  --success: oklch(0.62 0.14 155);
-  --border: oklch(0.91 0.01 250);
-  --input: oklch(0.91 0.01 250);
-  --ring: oklch(0.65 0.11 188);
-  --chart-1: oklch(0.65 0.11 188);
-  --chart-2: oklch(0.29 0.06 250);
-  --chart-3: oklch(0.75 0.15 75);
-  --chart-4: oklch(0.58 0.21 27);
-  --chart-5: oklch(0.62 0.14 155);
-  --sidebar: oklch(0.29 0.06 250);
-  --sidebar-foreground: oklch(0.85 0.02 250);
-  --sidebar-primary: oklch(0.65 0.11 188);
-  --sidebar-primary-foreground: oklch(0.99 0 0);
-  --sidebar-accent: oklch(0.35 0.06 250);
-  --sidebar-accent-foreground: oklch(0.99 0 0);
-  --sidebar-border: oklch(0.36 0.05 250);
-  --sidebar-ring: oklch(0.65 0.11 188);
+  color-scheme: dark;
+
+  --radius: 0.85rem;
+
+  --background: oklch(0.16 0.035 250);
+  --foreground: oklch(0.96 0.018 245);
+
+  --card: oklch(0.22 0.045 250);
+  --card-foreground: oklch(0.96 0.018 245);
+
+  --popover: oklch(0.20 0.045 250);
+  --popover-foreground: oklch(0.96 0.018 245);
+
+  --primary: oklch(0.60 0.19 255);
+  --primary-foreground: oklch(0.99 0.005 245);
+
+  --secondary: oklch(0.27 0.045 250);
+  --secondary-foreground: oklch(0.94 0.02 245);
+
+  --muted: oklch(0.25 0.04 250);
+  --muted-foreground: oklch(0.72 0.035 250);
+
+  --accent: oklch(0.72 0.15 205);
+  --accent-foreground: oklch(0.16 0.035 250);
+
+  --destructive: oklch(0.68 0.19 15);
+  --destructive-foreground: oklch(0.99 0.01 275);
+
+  --warning: oklch(0.80 0.16 80);
+  --success: oklch(0.78 0.16 165);
+
+  --border: oklch(0.34 0.045 250);
+  --input: oklch(0.31 0.04 250);
+  --ring: oklch(0.62 0.19 255);
+
+  --chart-1: oklch(0.62 0.19 255);
+  --chart-2: oklch(0.78 0.14 190);
+  --chart-3: oklch(0.82 0.16 80);
+  --chart-4: oklch(0.68 0.18 300);
+  --chart-5: oklch(0.70 0.19 20);
+
+  --sidebar: oklch(0.13 0.035 250);
+  --sidebar-foreground: oklch(0.94 0.02 245);
+
+  --sidebar-primary: oklch(0.60 0.19 255);
+  --sidebar-primary-foreground: oklch(0.99 0.005 245);
+
+  --sidebar-accent: oklch(0.23 0.04 250);
+  --sidebar-accent-foreground: oklch(0.96 0.018 245);
+
+  --sidebar-border: oklch(0.29 0.04 250);
+  --sidebar-ring: oklch(0.62 0.19 255);
+
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
+
+/* =========================================================
+   BASE STYLES
+========================================================= */
 
 @layer base {
   * {
@@ -111,5 +142,505 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
   }
+
+  ::selection {
+    background: rgba(49, 91, 250, 0.35);
+    color: #ffffff;
+  }
+
+  * {
+    scrollbar-color: #46508a #10132d;
+  }
+
+  input,
+  textarea,
+  select {
+    color-scheme: dark;
+  }
+}
+
+/* =========================================================
+   LOGIN / SIGN-IN / PASSWORD RECOVERY
+   Preserved original styling
+========================================================= */
+
+.mizan-auth {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(420px, 0.95fr);
+  background: #f7f9fd;
+  color: #172b4d;
+}
+
+.auth-brand-panel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(28px, 5vw, 68px);
+  background:
+    radial-gradient(circle at 75% 78%, #2c82df 0, transparent 32%),
+    linear-gradient(145deg, #123b78 0%, #075eb3 52%, #0b3470 100%);
+  color: white;
+}
+
+.auth-brand {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.auth-logo {
+  display: flex;
+  height: 56px;
+  width: 56px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ffffff40;
+  border-radius: 17px;
+  background: linear-gradient(145deg, #4b9cff, #1758bb);
+  color: white;
+  box-shadow: 0 12px 32px #061f4d55;
+}
+
+.auth-brand-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 570px;
+  margin: auto 0;
+  padding: 80px 0;
+}
+
+.auth-eyebrow {
+  color: #b9dcff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+}
+
+.auth-brand-copy h2 {
+  margin-top: 20px;
+  font-size: clamp(38px, 4.5vw, 66px);
+  font-weight: 750;
+  line-height: 1.06;
+  letter-spacing: -0.045em;
+}
+
+.auth-brand-copy h2 span {
+  color: #82d9ff;
+}
+
+.auth-brand-copy p {
+  max-width: 400px;
+  margin-top: 22px;
+  color: #d4e8ff;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.auth-brand-foot {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #c6e0ff;
+  font-size: 12px;
+}
+
+.auth-orb {
+  position: absolute;
+  z-index: -1;
+  border: 1px solid #ffffff1c;
+  border-radius: 999px;
+  background: linear-gradient(145deg, #ffffff12, #ffffff03);
+}
+
+.auth-orb-one {
+  right: -170px;
+  top: -190px;
+  height: 560px;
+  width: 560px;
+}
+
+.auth-orb-two {
+  right: 4%;
+  bottom: 7%;
+  height: 260px;
+  width: 260px;
+  background: #52aaff20;
+}
+
+.auth-orb-three {
+  left: -150px;
+  bottom: -190px;
+  height: 430px;
+  width: 430px;
+  background: #061e4d20;
+}
+
+.auth-form-panel {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(28px, 5vw, 72px);
+  background: linear-gradient(135deg, #fbfcff, #f1f5fc);
+}
+
+.auth-form-wrap {
+  width: 100%;
+  max-width: 410px;
+}
+
+.auth-input-wrap {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #dce4f0;
+  border-radius: 11px;
+  background: white;
+  padding: 0 13px;
+  color: #7890ad;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.auth-input-wrap:focus-within {
+  border-color: #3479d5;
+  box-shadow: 0 0 0 3px #3479d51a;
+}
+
+.auth-input-wrap input {
+  min-width: 0;
+  height: 46px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: #18365f;
+  box-shadow: none !important;
+  outline: none;
+}
+
+.auth-input-wrap input::placeholder {
+  color: #9aa9bb;
+}
+
+.auth-show-password {
+  display: inline-flex;
+  color: #7890ad;
+}
+
+.auth-submit {
+  min-height: 49px;
+  border-radius: 11px !important;
+  background: linear-gradient(100deg, #1557a7, #2878d5) !important;
+  color: white !important;
+  font-weight: 700;
+  box-shadow: 0 9px 20px #2468d82a;
+}
+
+.auth-submit:hover {
+  filter: brightness(1.07);
+}
+
+@media (max-width: 900px) {
+  .mizan-auth {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-brand-panel {
+    display: none;
+  }
+
+  .auth-form-panel {
+    min-height: 100vh;
+    padding: 28px 22px;
+  }
+}
+
+/* =========================================================
+   DASHBOARD ANIMATIONS
+   Preserved original styling
+========================================================= */
+
+.dashboard-metric {
+  animation: metric-enter 0.55s cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+.dashboard-metric:nth-child(2) {
+  animation-delay: 0.08s;
+}
+
+.dashboard-metric:nth-child(3) {
+  animation-delay: 0.16s;
+}
+
+.dashboard-metric:nth-child(4) {
+  animation-delay: 0.24s;
+}
+
+@keyframes metric-enter {
+  from {
+    opacity: 0;
+    transform: translateY(13px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dashboard-metric {
+    animation: none !important;
+  }
+}
+
+/* =========================================================
+   SHARED WORKSPACE PAGE STYLING
+   Common surfaces remain deep blue
+========================================================= */
+
+.mizan-colour-page {
+  --background: #102b4c;
+  --foreground: #f5f8ff;
+
+  --card: #16385c;
+  --card-foreground: #f5f8ff;
+
+  --popover: #16385c;
+  --popover-foreground: #f5f8ff;
+
+  --secondary: #1b4169;
+  --secondary-foreground: #f5f8ff;
+
+  --muted: #1b4169;
+  --muted-foreground: #b9cde6;
+
+  --border: #315477;
+  --input: #315477;
+
+  --destructive: #d94f64;
+  --destructive-foreground: #ffffff;
+
+  color: var(--foreground);
+  color-scheme: dark;
+}
+
+/* Shared blue cards and input surfaces */
+
+.mizan-colour-page .bg-card {
+  background-color: var(--card);
+  color: var(--card-foreground);
+}
+
+.mizan-colour-page .bg-muted {
+  background-color: var(--muted);
+}
+
+.mizan-colour-page .border {
+  border-color: var(--border);
+}
+
+.mizan-colour-page input,
+.mizan-colour-page textarea,
+.mizan-colour-page select {
+  color-scheme: dark;
+}
+
+.mizan-colour-page input::placeholder,
+.mizan-colour-page textarea::placeholder {
+  color: #9db7d5;
+}
+
+/* =========================================================
+   PAGE 1 — AI ASSISTANT
+   Tech blue #0052CC
+========================================================= */
+
+/* AI Assistant — soft light-blue conversation area */
+.mizan-page-chat .mizan-chat-surface {
+  --foreground: #17365D;
+  --muted: #DCEBFA;
+  --muted-foreground: #526B86;
+
+  background-color: #EAF4FF !important;
+  color: #17365D !important;
+  border-color: #C6DCF4 !important;
+}
+
+/* Assistant message surfaces */
+.mizan-page-chat .mizan-chat-surface .bg-muted\/40 {
+  background-color: #DCEBFA !important;
+  color: #17365D !important;
+}
+
+/* Assistant response text */
+.mizan-page-chat .mizan-chat-surface .text-foreground {
+  color: #17365D !important;
+}
+
+/* Keep user messages blue with white text */
+.mizan-page-chat .mizan-chat-surface .bg-primary {
+  background-color: #0052CC !important;
+  color: #FFFFFF !important;
+}
+/* =========================================================
+   PAGE 2 — TASKS
+   Vibrant yellow #FFC400
+========================================================= */
+
+.mizan-page-tasks {
+  --primary: #ffc400;
+  --primary-foreground: #172b4d;
+
+  --accent: #ffd740;
+  --accent-foreground: #172b4d;
+
+  --warning: #ffc400;
+  --ring: #ffd740;
+
+  --chart-1: #ffc400;
+  --chart-3: #ffab00;
+
+  --page-accent: #ffc400;
+  --page-accent-soft: rgb(255 196 0 / 17%);
+  --page-accent-glow: rgb(255 196 0 / 20%);
+}
+
+/* =========================================================
+   PAGE 3 — DOCUMENT WALLET
+   Royal purple #5243AA
+========================================================= */
+
+.mizan-page-documents {
+  --primary: #5243aa;
+  --primary-foreground: #ffffff;
+
+  --accent: #8777d9;
+  --accent-foreground: #ffffff;
+
+  --ring: #8777d9;
+
+  --chart-1: #5243aa;
+  --chart-4: #8777d9;
+
+  --page-accent: #5243aa;
+  --page-accent-soft: rgb(82 67 170 / 20%);
+  --page-accent-glow: rgb(82 67 170 / 22%);
+}
+
+/* =========================================================
+   PAGE 4 — COMPLIANCE CALENDAR
+   Mint green #00875A
+========================================================= */
+
+.mizan-page-calendar {
+  --primary: #00875a;
+  --primary-foreground: #ffffff;
+
+  --accent: #36b37e;
+  --accent-foreground: #ffffff;
+
+  --success: #00875a;
+  --ring: #36b37e;
+
+  --chart-1: #00875a;
+  --chart-2: #36b37e;
+
+  --page-accent: #00875a;
+  --page-accent-soft: rgb(0 135 90 / 17%);
+  --page-accent-glow: rgb(0 135 90 / 20%);
+}
+
+/* =========================================================
+   PAGE-SPECIFIC ACCENT APPLICATION
+   Only accent-bearing elements change colour
+========================================================= */
+
+/* Primary buttons and highlighted surfaces */
+
+.mizan-colour-page .bg-primary {
+  background-color: var(--page-accent) !important;
+  color: var(--primary-foreground) !important;
+  box-shadow: 0 5px 18px var(--page-accent-glow);
+}
+
+/* Primary text and icons */
+
+.mizan-colour-page .text-primary {
+  color: var(--page-accent) !important;
+}
+
+/* Accent borders */
+
+.mizan-colour-page .border-primary,
+.mizan-colour-page .border-accent {
+  border-color: var(--page-accent) !important;
+}
+
+/* Subtle accent backgrounds */
+
+.mizan-colour-page .bg-primary\/10,
+.mizan-colour-page .bg-accent\/10 {
+  background-color: var(--page-accent-soft) !important;
+}
+
+/* Accent text */
+
+.mizan-colour-page .text-accent {
+  color: var(--accent) !important;
+}
+
+/* Focus and selection rings */
+
+.mizan-colour-page .ring-primary {
+  --tw-ring-color: var(--page-accent) !important;
+}
+
+.mizan-colour-page button:focus-visible,
+.mizan-colour-page input:focus-visible,
+.mizan-colour-page textarea:focus-visible,
+.mizan-colour-page select:focus-visible {
+  outline-color: var(--ring) !important;
+}
+
+/* =========================================================
+   PAGE-SPECIFIC STATUS COLOURS
+========================================================= */
+
+/* Tasks */
+
+.mizan-page-tasks .text-warning {
+  color: #ffd740 !important;
+}
+
+/* Compliance Calendar */
+
+.mizan-page-calendar .text-success {
+  color: #36b37e !important;
+}
+
+.mizan-page-calendar .bg-success\/10,
+.mizan-page-calendar .bg-success\/15 {
+  background-color: rgb(0 135 90 / 16%) !important;
+}
+
+/* Shared error and destructive states */
+
+.mizan-colour-page .text-destructive {
+  color: #ff8292;
+}
+
+.mizan-colour-page .bg-destructive\/10,
+.mizan-colour-page .bg-destructive\/5 {
+  background-color: rgb(217 79 100 / 14%);
 }

@@ -17,9 +17,11 @@ export type Doc = {
   name: string;
   size: number;
   category: string;
+  issueDate?: string;
   expiry?: string;
   uploadedAt: string;
   url?: string;
+  hasFile?: boolean;
 };
 export type Task = {
   id: string;
@@ -95,11 +97,32 @@ export function useStore<T>(sel: (s: State) => T): T {
 
 export const uid = () => Math.random().toString(36).slice(2, 10);
 
+
 export function log(actor: Activity["actor"], text: string) {
+  const entry = {
+    id: uid(),
+    at: new Date().toISOString(),
+    actor,
+    text,
+  };
+
+  // Update the local store immediately
   setState((s) => ({
-    activity: [{ id: uid(), at: new Date().toISOString(), actor, text }, ...s.activity],
+    activity: [entry, ...s.activity],
   }));
+
+  // Persist the activity in MongoDB
+  void fetch("/api/activity", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ actor, text }),
+  }).catch((error) => {
+    console.error("Unable to persist activity:", error);
+  });
 }
+
 
 export function resetAll() {
   state = empty;
